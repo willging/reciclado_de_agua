@@ -1,0 +1,6 @@
+{
+  "name": "SiDeReA - Reciclado de Agua Domiciliaria",
+  "description": "Animación interactiva del sistema domiciliario de reutilización de aguas grises basada en los esquemas de distribución y desagüe de SiDeReA, con métricas de ahorro y beneficios ambientales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
