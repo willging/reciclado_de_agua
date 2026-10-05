@@ -1,22 +1,314 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SiDeReA - Reciclado de Agua Domiciliaria</title>
-    <meta name="description" content="Animación interactiva del sistema domiciliario de reutilización de aguas grises basada en los esquemas de distribución y desagüe de SiDeReA, con métricas de ahorro y beneficios ambientales." />
-    <meta property="og:title" content="SiDeReA - Reciclado de Agua Domiciliaria" />
-    <meta property="og:description" content="Animación interactiva del sistema domiciliario de reutilización de aguas grises basada en los esquemas de distribución y desagüe de SiDeReA, con métricas de ahorro y beneficios ambientales." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-  </head>
-  <body>
-    <header>
-        <h1>Reciclado de Agua Domiciliaria</h1>
-        <p class="subtitle">Proyecto de Diseño de casas con sistema de doble circulación</p>
-    </header>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SiDeReA — Sistema domiciliario de reutilización de agua</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="grid-bg" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="hero-tag">EPET N°1 · 5° II · TEIE — Educación, innovación, diseño e implementación</div>
+  <h1 class="hero-title">SiDeReA</h1>
+  <p class="hero-sub">Sistema domiciliario de reutilización de agua</p>
+  <p class="hero-desc">Un aporte al recurso en nuestra región: cómo el agua que ya usamos en la ducha, el lavatorio y el lavarropas puede volver a circular en la casa antes de llegar a la red cloacal.</p>
+
+  <div class="hero-loop" aria-hidden="true">
+    <svg viewBox="0 0 200 200" class="loop-svg">
+      <circle cx="100" cy="100" r="78" class="loop-ring loop-ring-1"/>
+      <circle cx="100" cy="100" r="78" class="loop-ring loop-ring-2"/>
+      <circle cx="100" cy="100" r="78" class="loop-ring loop-ring-3"/>
+      <path d="M100 22 L108 40 L92 40 Z" class="loop-arrow loop-arrow-1"/>
+      <path d="M178 100 L160 108 L160 92 Z" class="loop-arrow loop-arrow-2"/>
+      <path d="M100 178 L92 160 L108 160 Z" class="loop-arrow loop-arrow-3"/>
+    </svg>
+  </div>
+
+  <a href="#diagrama" class="scroll-cue">
+    <span>ver cómo funciona</span>
+    <svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 0 V18 M1 12 L7 18 L13 12" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+  </a>
+</header>
+
+<main>
+
+  <section class="compare" id="comparar">
+    <h2 class="section-title">Dos formas de usar la misma agua</h2>
+    <p class="section-lede">En una casa con red tradicional, el agua se usa una sola vez y se pierde en su totalidad por la red cloacal. SiDeReA intercepta el agua que sale de la ducha, el lavatorio y el lavarropas — las llamadas <em>aguas grises</em> — y la reutiliza para la descarga del inodoro.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <span class="compare-label">Sistema tradicional</span>
+        <svg viewBox="0 0 350 225" class="compare-svg">
+          <rect x="20" y="55" width="36" height="90" rx="3" class="tank-body"/>
+          <text x="38" y="162" class="mono-label tiny" text-anchor="middle">RESERVA</text>
+          <path d="M4 100 H20" class="pipe pipe-blue-static"/>
+          <path d="M56 70 H140" class="pipe pipe-blue-static"/>
+          <path d="M56 100 H140" class="pipe pipe-blue-static"/>
+          <path d="M56 130 H140" class="pipe pipe-blue-static"/>
+          <circle cx="150" cy="70" r="6" class="fixture"/>
+          <text x="164" y="73" class="mono-label tiny">grifo · 10%</text>
+          <circle cx="150" cy="100" r="6" class="fixture"/>
+          <text x="164" y="103" class="mono-label tiny">ducha + lavatorio · 50%</text>
+          <circle cx="150" cy="130" r="6" class="fixture"/>
+          <text x="164" y="133" class="mono-label tiny">inodoro · 40%</text>
+          <path d="M292 70 H330 V190 M292 100 H330 M292 130 H330" class="pipe pipe-red-static"/>
+          <text x="330" y="208" class="mono-label tiny" text-anchor="end">RED DE CLOACAS</text>
+        </svg>
+        <p class="compare-note">Todo el agua se descarta después de un solo uso.</p>
+      </div>
+
+      <div class="compare-card compare-card-accent">
+        <span class="compare-label">SiDeReA</span>
+        <svg viewBox="0 0 350 225" class="compare-svg">
+          <rect x="20" y="55" width="36" height="90" rx="3" class="tank-body"/>
+          <text x="38" y="162" class="mono-label tiny" text-anchor="middle">RESERVA</text>
+          <path d="M4 100 H20" class="pipe pipe-blue-static"/>
+          <path d="M56 70 H140" class="pipe pipe-blue-static"/>
+          <path d="M56 100 H140" class="pipe pipe-blue-static"/>
+          <circle cx="150" cy="70" r="6" class="fixture"/>
+          <text x="164" y="73" class="mono-label tiny">grifo · 10%</text>
+          <circle cx="150" cy="100" r="6" class="fixture"/>
+          <text x="164" y="103" class="mono-label tiny">ducha + lavatorio · 50%</text>
+          <circle cx="150" cy="130" r="6" class="fixture"/>
+          <text x="164" y="133" class="mono-label tiny">inodoro · agua reutilizada</text>
+          <path d="M292 70 H330 V190" class="pipe pipe-red-static"/>
+          <path d="M292 100 H310 V150" class="pipe pipe-gray-static"/>
+          <rect x="290" y="150" width="40" height="24" rx="3" class="tank-body tank-gray"/>
+          <path d="M290 162 H150 V138" class="pipe pipe-gray-static"/>
+          <text x="310" y="188" class="mono-label tiny" text-anchor="middle">aguas grises</text>
+          <text x="330" y="208" class="mono-label tiny" text-anchor="end">RED DE CLOACAS</text>
+        </svg>
+        <p class="compare-note">El agua del baño se reutiliza en el inodoro antes de salir de la casa: 40% menos de consumo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="diagram-section" id="diagrama">
+    <h2 class="section-title">Cómo circula el agua en la casa</h2>
+    <p class="section-lede">Este es el recorrido completo: distribución del agua potable, captación de las aguas grises y su reutilización, y el desagüe final hacia la red cloacal. Tocá "Reproducir circulación" para ver el agua en movimiento.</p>
+
+    <div class="diagram-controls">
+      <button id="playToggle" class="btn btn-primary" type="button">
+        <svg id="iconPlay" width="14" height="14" viewBox="0 0 14 14"><path d="M2 1 L13 7 L2 13 Z" fill="currentColor"/></svg>
+        <svg id="iconPause" width="14" height="14" viewBox="0 0 14 14" style="display:none"><rect x="2" y="1" width="4" height="12" fill="currentColor"/><rect x="8" y="1" width="4" height="12" fill="currentColor"/></svg>
+        <span id="playLabel">Reproducir circulación</span>
+      </button>
+      <button id="modeToggle" class="btn btn-ghost" type="button">Comparar con sistema tradicional</button>
+    </div>
+
+    <div class="diagram-wrap" id="diagramWrap">
+      <svg viewBox="0 0 1020 660" class="main-diagram" id="mainDiagram" role="img" aria-label="Diagrama de circulación de agua potable, aguas grises y desagüe cloacal en el sistema SiDeReA">
+
+        <!-- zone markers -->
+        <text x="30" y="34" class="mono-label section-mark">DISTRIBUCIÓN</text>
+        <text x="30" y="418" class="mono-label section-mark">DESAGÜE</text>
+
+        <!-- water main entry -->
+        <text x="14" y="80" class="mono-label small">RED DE<tspan x="14" dy="14">AGUA</tspan></text>
+        <path d="M72 84 H120" class="pipe pipe-blue" marker-end="url(#arrowBlue)"/>
+
+        <!-- tanque de reserva -->
+        <rect x="120" y="45" width="60" height="95" rx="4" class="tank-body"/>
+        <text x="150" y="162" text-anchor="middle" class="mono-label small">TANQUE DE<tspan x="150" dy="13">RESERVA</tspan></text>
+
+        <!-- grifo (10%) -->
+        <path d="M180 65 H330" class="pipe pipe-blue" marker-end="url(#arrowBlue)"/>
+        <g class="fixture-icon" transform="translate(335,50)">
+          <path d="M0 0 h30 M15 0 v12" class="icon-line"/>
+          <circle cx="15" cy="24" r="7" class="icon-fill-blue"/>
+        </g>
+        <text x="375" y="68" class="mono-label tiny">grifo</text>
+
+        <!-- ducha -->
+        <path d="M180 95 H300" class="pipe pipe-blue" marker-end="url(#arrowBlue)"/>
+        <g class="fixture-icon" transform="translate(300,78)">
+          <circle cx="14" cy="9" r="8" class="icon-outline"/>
+          <path d="M14 17 L14 36 M7 24 L21 24 M9 30 L19 30" class="icon-line"/>
+        </g>
+        <text x="332" y="99" class="mono-label tiny">ducha</text>
+
+        <!-- lavatorio -->
+        <path d="M180 140 H300" class="pipe pipe-blue" marker-end="url(#arrowBlue)"/>
+        <g class="fixture-icon" transform="translate(300,130)">
+          <ellipse cx="15" cy="8" rx="15" ry="7" class="icon-outline"/>
+          <path d="M0 8 v5 a15 5 0 0 0 30 0 v-5" class="icon-outline"/>
+        </g>
+        <text x="335" y="144" class="mono-label tiny">lavatorio</text>
+
+        <!-- lavarropas (spine down to kitchen row) -->
+        <path d="M180 120 V250 H300" class="pipe pipe-blue" marker-end="url(#arrowBlue)"/>
+        <g class="fixture-icon" transform="translate(300,235)">
+          <rect x="0" y="0" width="28" height="28" rx="3" class="icon-outline"/>
+          <circle cx="14" cy="16" r="8" class="icon-outline"/>
+        </g>
+        <text x="333" y="254" class="mono-label tiny">lavarropas</text>
+
+        <!-- baño drains merge -> filtro de sólidos -->
+        <path d="M314 114 V170" class="pipe pipe-gray"/>
+        <path d="M315 144 V170 H430" class="pipe pipe-gray" marker-end="url(#arrowGray)"/>
+        <rect x="430" y="156" width="92" height="28" rx="4" class="comp-box"/>
+        <text x="476" y="202" text-anchor="middle" class="mono-label tiny">filtro de sólidos</text>
+
+        <!-- lavarropas drain -> interceptor de grasas -->
+        <path d="M314 263 V320 H430" class="pipe pipe-gray" marker-end="url(#arrowGray)"/>
+        <rect x="430" y="306" width="92" height="28" rx="4" class="comp-box"/>
+        <text x="476" y="352" text-anchor="middle" class="mono-label tiny">interceptor de grasas</text>
+
+        <!-- both into tanque recuperador -->
+        <path d="M522 170 H585 V205" class="pipe pipe-gray gray-reuse" marker-end="url(#arrowGray)"/>
+        <path d="M522 320 H585 V285" class="pipe pipe-gray gray-reuse" marker-end="url(#arrowGray)"/>
+
+        <circle cx="665" cy="245" r="82" class="tank-body tank-gray-big"/>
+        <text x="665" y="233" text-anchor="middle" class="mono-label small">TANQUE<tspan x="665" dy="14">RECUPERADOR</tspan><tspan x="665" dy="14">AGUAS GRISES</tspan></text>
+
+        <!-- reinforcement stub: potable top-up if grey water is not enough -->
+        <path d="M665 18 V58" class="pipe pipe-blue thin" marker-end="url(#arrowBlue)"/>
+        <text x="676" y="30" class="mono-label tiny">refuerzo con<tspan x="676" dy="12">agua potable</tspan></text>
+
+        <!-- asegurador de caudal -->
+        <path d="M665 163 V58" class="pipe pipe-blue thin"/>
+        <rect x="615" y="58" width="100" height="28" rx="4" class="comp-box"/>
+        <text x="723" y="76" class="mono-label tiny">asegurador de caudal</text>
+
+        <!-- dispenser purificador -->
+        <path d="M747 245 H800" class="pipe pipe-gray gray-reuse" marker-end="url(#arrowGray)"/>
+        <rect x="800" y="231" width="100" height="28" rx="4" class="comp-box"/>
+        <text x="850" y="277" text-anchor="middle" class="mono-label tiny">dispenser purificador</text>
+
+        <!-- bomba de impulsión -->
+        <path d="M850 231 V176" class="pipe pipe-gray gray-reuse" marker-end="url(#arrowGray)"/>
+        <rect x="800" y="150" width="100" height="26" rx="13" class="comp-box"/>
+        <text x="795" y="168" text-anchor="end" class="mono-label tiny">bomba de impulsión</text>
+
+        <!-- tanque de reaseguro -->
+        <path d="M850 150 V124" class="pipe pipe-gray gray-reuse" marker-end="url(#arrowGray)"/>
+        <circle cx="850" cy="90" r="34" class="tank-body tank-gray"/>
+        <text x="892" y="86" class="mono-label tiny">tanque de<tspan x="892" dy="12">reaseguro</tspan></text>
+
+        <!-- reaseguro -> inodoro, routed along the right and bottom edges to avoid crossing fixtures -->
+        <path d="M884 90 H930 V430 H260" class="pipe pipe-gray gray-reuse" marker-end="url(#arrowGray)"/>
+
+        <!-- válvula de rebalse -->
+        <path d="M665 327 V360" class="pipe pipe-gray thin"/>
+        <text x="676" y="357" class="mono-label tiny">válvula de rebalse</text>
+        <path d="M665 360 V445" class="pipe pipe-gray thin" marker-end="url(#arrowGray)"/>
+
+        <!-- inodoro -->
+        <path d="M260 430 V445" class="pipe pipe-gray gray-reuse"/>
+        <g class="fixture-icon" transform="translate(230,445)">
+          <path d="M0 0 h30 v10 h-30 Z" class="icon-outline"/>
+          <path d="M4 10 q0 25 11 25 q11 0 11 -25" class="icon-outline"/>
+        </g>
+        <text x="245" y="495" text-anchor="middle" class="mono-label tiny">inodoro<tspan x="245" dy="12">(agua reutilizada)</tspan></text>
+
+        <!-- inodoro blackwater drain -> cámara de inspección -->
+        <path d="M260 465 H610" class="pipe pipe-red" marker-end="url(#arrowRed)"/>
+
+        <!-- cámara de inspección -->
+        <rect x="610" y="450" width="80" height="55" class="comp-box comp-box-inspect"/>
+        <text x="650" y="524" text-anchor="middle" class="mono-label tiny">cámara de inspección</text>
+
+        <!-- cámara -> red de cloacas -->
+        <path d="M650 505 V575" class="pipe pipe-red" marker-end="url(#arrowRed)"/>
+        <text x="650" y="600" text-anchor="middle" class="mono-label small">RED DE CLOACAS</text>
+
+        <!-- legend -->
+        <g transform="translate(760,470)" class="legend">
+          <line x1="0" y1="0" x2="26" y2="0" class="pipe pipe-blue-static"/>
+          <text x="34" y="4" class="mono-label tiny">agua potable</text>
+          <line x1="0" y1="24" x2="26" y2="24" class="pipe pipe-gray-static"/>
+          <text x="34" y="28" class="mono-label tiny">aguas grises reutilizadas</text>
+          <line x1="0" y1="48" x2="26" y2="48" class="pipe pipe-red-static"/>
+          <text x="34" y="52" class="mono-label tiny">desagüe cloacal</text>
+        </g>
+
+        <defs>
+          <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" class="marker-blue"/></marker>
+          <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" class="marker-gray"/></marker>
+          <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" class="marker-red"/></marker>
+        </defs>
+      </svg>
+    </div>
+
+    <p class="diagram-caption">En modo comparación, los tramos grises de reutilización se atenúan: así se ve cuánta cañería adicional hace falta para dejar de tirar esa agua directamente a la red cloacal.</p>
+
+    <ul class="components-list">
+      <li>Asegurador de caudal</li>
+      <li>Filtro interceptor de sólidos</li>
+      <li>Interceptor de grasas</li>
+      <li>Tanque recuperador de aguas grises</li>
+      <li>Dispenser purificador</li>
+      <li>Bomba de impulsión</li>
+      <li>Tanque de reaseguro</li>
+      <li>Válvula de rebalse</li>
+    </ul>
+  </section>
+
+  <section class="stats" id="numeros">
+    <h2 class="section-title">Lo que representa, en números</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number" data-target="40" data-suffix="%">0%</span>
+        <span class="stat-label">de ahorro sobre el consumo total de la vivienda</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="220" data-suffix=" L">0 L</span>
+        <span class="stat-label">menos por día, para una familia tipo de 4 personas</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="80" data-suffix=" M L">0 M L</span>
+        <span class="stat-label">de reducción anual estimada por vivienda</span>
+      </div>
+    </div>
+    <p class="stats-note">550 L/día en un sistema tradicional → 330 L/día con SiDeReA (cálculo según datos estadísticos).</p>
+  </section>
+
+  <section class="benefits" id="beneficios">
+    <h2 class="section-title">Beneficios ambientales</h2>
+    <div class="benefits-grid">
+      <article class="benefit">
+        <span class="benefit-mark">01</span>
+        <h3>Menos presión sobre las fuentes de agua</h3>
+        <p>Cada litro que se reutiliza dentro de la casa es un litro que no hay que extraer de una napa, un río o un embalse. En regiones semiáridas como La Pampa, donde el agua dulce es un recurso escaso y estacional, esto tiene un impacto directo sobre la disponibilidad a largo plazo.</p>
+      </article>
+      <article class="benefit">
+        <span class="benefit-mark">02</span>
+        <h3>Menor carga sobre el tratamiento cloacal</h3>
+        <p>Al reducir el volumen que llega a la red de cloacas, disminuye la energía y los insumos que las plantas de tratamiento necesitan para procesar esos líquidos, y se alarga la vida útil de la infraestructura existente.</p>
+      </article>
+      <article class="benefit">
+        <span class="benefit-mark">03</span>
+        <h3>Menos energía asociada al agua</h3>
+        <p>Potabilizar, bombear y luego tratar el agua como líquido cloacal consume energía en cada etapa. Reutilizar agua dentro del propio domicilio acorta ese ciclo y reduce la huella energética indirecta del consumo doméstico.</p>
+      </article>
+      <article class="benefit">
+        <span class="benefit-mark">04</span>
+        <h3>Un hábito replicable a escala barrial</h3>
+        <p>Un sistema simple, con componentes accesibles como filtros e interceptores, puede instalarse en viviendas existentes. Multiplicado por barrio o localidad, el ahorro individual se convierte en un aporte medible al recurso hídrico regional.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="timeline" id="planificacion">
+    <h2 class="section-title">Planificación del proyecto</h2>
+    <ol class="timeline-list">
+      <li><span class="tl-year">2023</span><span class="tl-text">Ideación, análisis de conflictos y diseño para la maqueta a escala 1:10.</span></li>
+      <li><span class="tl-year">2024</span><span class="tl-text">Gestión de recursos, marco jurídico, evaluación de impacto ambiental y prueba de campo.</span></li>
+      <li><span class="tl-year">2025</span><span class="tl-text">Ajustes, cuantificación real y comienzo de la promoción y comercialización.</span></li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>SiDeReA — Un proyecto sostenible con un propósito sustentable.</p>
+  <p class="footer-meta">EPET N°1 · 5° II · TEIE — Educación, innovación, diseño e implementación.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
