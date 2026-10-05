@@ -1,0 +1,7 @@
+SiDeReA - Sistema domiciliario de reutilización de agua
+
+Cómo verlo: descomprimí la carpeta y abrí el archivo index.html con
+cualquier navegador (Chrome, Firefox, Edge, Safari). No necesita internet.
+
+Archivos: index.html (estructura y diagramas SVG), style.css (estilos),
+script.js (animación del flujo, modo comparación, contadores).
